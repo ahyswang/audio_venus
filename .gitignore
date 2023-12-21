@@ -1,0 +1,9 @@
+build_linux/*
+data.ignore/*
+*.o
+*.pyc
+
+bin/*
+lib/*
+examples/*/bin/*
+examples/*/lib/*

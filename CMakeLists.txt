@@ -1,0 +1,13 @@
+cmake_minimum_required(VERSION 3.2)
+
+project(mylib VERSION 1.0.0)
+
+set(CMAKE_VERBOSE_MAKEFILE on)
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+
+message(STATUS "[INF] PLATFORM_NAME : ${PLATFORM_NAME}")
+include("./cmake/${PLATFORM_NAME}.cmake")
+
+add_subdirectory(src)
