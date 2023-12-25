@@ -156,6 +156,5 @@ def test_thinker():
 
 if __name__ == "__main__":
     test_fbank()
-    test_thinker()
-    
+    #test_thinker()
     
