@@ -19,3 +19,37 @@ void test_uninit()
 {
 
 }
+
+int load_bin(const char* filename, void** pp_addr, unsigned* p_size)
+{
+    FILE* fp;
+    unsigned size;
+    void* buf;
+    fp = fopen(filename, "rb");
+    if (!fp) {
+        printf("open file error, file:%s\n", filename);
+        return -1;
+    }
+    fseek(fp, 0, SEEK_END);
+    size = ftell(fp);
+    fseek(fp, 0, SEEK_SET);
+    buf = malloc(size);
+    fread(buf, size, 1, fp);
+    fclose(fp);
+    return 0;
+}
+
+int save_bin(const char* filename, void* p_addr, unsigned size)
+{
+    FILE* fp;
+    void* buf;
+    fp = fopen(filename, "wb");
+    if (!fp) {
+        printf("open file error, file:%s\n", filename);
+        return -1;
+    }
+    fwrite(buf, size, 1, fp);
+    fclose(fp);
+    return 0;
+}
+

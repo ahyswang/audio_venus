@@ -48,6 +48,9 @@ void test_uninit();
 void test_fbank();
 void test_fft();
 
+int load_bin(const char* filename, void** pp_addr, unsigned* p_size);
+int save_bin(const char* filename, void* p_addr, unsigned size);
+
 #ifdef __cplusplus
 }
 #endif

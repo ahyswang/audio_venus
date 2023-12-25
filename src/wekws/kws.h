@@ -13,10 +13,12 @@ typedef struct
     int sample_rate;
     int frame_length;
     int frame_shift;
+    int qvalue;
     void* res_addr;
     int res_size;
     void* mean;
     void* istd;
+    void* extra;
 } kws_conf_t;
 
 typedef struct tag_kws_t kws_t;

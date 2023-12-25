@@ -6,3 +6,4 @@ file(GLOB C_SOURCES *.c)
 
 add_library(wekws STATIC ${C_SOURCES})
 add_library(wekws_so SHARED ${C_SOURCES})
+target_link_libraries(wekws_so thinker hifi luna)

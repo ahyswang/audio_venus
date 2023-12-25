@@ -16,7 +16,7 @@ pushd ${script_dir}/bin/
 popd
 
 pushd ${script_dir}/
-export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:./lib/:../lib/
-#python ./scripts/wekws.py
-python ./scripts/test_fbank.py
+export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:./lib/:../lib/:${root_dir}/deps/linux64/lib/
+python ./scripts/wekws.py
+#python ./scripts/test_fbank.py
 popd 
