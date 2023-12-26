@@ -138,7 +138,7 @@ int thinker_forward(thinker_t* svr)
     int i;
     ret = tForward(svr->hdl);
     if (ret != T_SUCCESS) {
-        printf("tSetInput error, ret = %d\n", ret);
+        printf("tForward error, ret = %d\n", ret);
         return -1;
     }
     return 0;

@@ -7,4 +7,4 @@ link_directories(${CMAKE_ARCHIVE_OUTPUT_DIRECTORY})
 file(GLOB C_SOURCES *.c)
 
 add_executable(wekws_test ${C_SOURCES})
-target_link_libraries(wekws_test wekws thinker hifi luna)
+target_link_libraries(wekws_test wekws audio thinker hifi luna)

@@ -1,0 +1,13 @@
+# conda create -n audio_venus python=3.7.3
+# conda activate audio_venus
+# pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+# https://pytorch.org/get-started/previous-versions/
+# pip install torch==1.9.0+cu102 torchvision==0.10.0+cu102 torchaudio==0.9.0 -f https://download.pytorch.org/whl/torch_stable.html
+torch==1.9.0+cu102 
+torchvision==0.10.0+cu102 
+torchaudio==0.9.0
+numpy==1.21.6
+protobuf==3.20.3
+onnx==1.7.0
+pytest==7.1.2
+pybind11==2.6.1

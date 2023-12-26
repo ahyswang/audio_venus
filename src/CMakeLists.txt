@@ -1,4 +1,8 @@
 add_subdirectory(mylib)
 add_subdirectory(mylib_test)
+add_subdirectory(audio)
+add_subdirectory(audio_test)
 add_subdirectory(wekws)
 add_subdirectory(wekws_test)
+add_subdirectory(snoring_detect)
+add_subdirectory(snoring_detect_test)

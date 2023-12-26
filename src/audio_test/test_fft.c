@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-#include "fft.h"
+#include "audio/fft.h"
 #include "test.h"
 
 extern unsigned g_mem_size;

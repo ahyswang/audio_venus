@@ -1,9 +1,9 @@
 build_linux/*
-data.ignore/*
+*.ignore*
 *.o
 *.pyc
 
-bin/*
-lib/*
-examples/*/bin/*
-examples/*/lib/*
+# bin/*
+# lib/*
+# examples/*/bin/*
+# examples/*/lib/*

@@ -255,7 +255,6 @@ void fbank_uninit(fbank_t *svr)
             mel_energy = epsilon;
           mel_energy = logf(mel_energy);
         }
-
         feat[i*svr->num_bins_+j] = mel_energy;
         // printf("%f ", mel_energy);
       }

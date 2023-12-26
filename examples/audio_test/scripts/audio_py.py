@@ -5,7 +5,7 @@ import argparse
 
 class FBank(object):
     """ FBank wrap """
-    def __init__(self, num_bins:int, sample_rate:int, frame_length:int, frame_shift:int, so_path:str = "libwekws.so") -> None:
+    def __init__(self, num_bins:int, sample_rate:int, frame_length:int, frame_shift:int, so_path:str = "libaudio_so.so") -> None:
         """ init object """
         self.num_bins = num_bins
         self.sample_rate = sample_rate

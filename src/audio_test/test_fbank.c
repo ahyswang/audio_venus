@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "fbank_c.h"
+#include "audio/fbank_c.h"
 #include "test.h"
 
 void test_fbank()
