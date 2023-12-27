@@ -22,6 +22,7 @@ void test_uninit()
 
 int load_bin(const char* filename, void** pp_addr, unsigned* p_size)
 {
+#if defined(linux)
     FILE* fp;
     unsigned size;
     void* buf;
@@ -36,11 +37,13 @@ int load_bin(const char* filename, void** pp_addr, unsigned* p_size)
     buf = malloc(size);
     fread(buf, size, 1, fp);
     fclose(fp);
+#endif 
     return 0;
 }
 
 int save_bin(const char* filename, void* p_addr, unsigned size)
 {
+#if defined(linux)
     FILE* fp;
     void* buf;
     fp = fopen(filename, "wb");
@@ -50,6 +53,7 @@ int save_bin(const char* filename, void* p_addr, unsigned size)
     }
     fwrite(buf, size, 1, fp);
     fclose(fp);
+#endif 
     return 0;
 }
 

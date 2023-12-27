@@ -11,15 +11,24 @@
 #define LOG printf
 #define LOGD printf
 
+#if defined(linux)
 static char g_mem_buf[MEM_SIZE] __attribute__((aligned(32)));
 static char g_shm_buf[SHM_SIZE] __attribute__((aligned(32)));
 unsigned g_mem_size = MEM_SIZE;
 unsigned g_shm_size = SHM_SIZE;
 void* g_mem_addr = g_mem_buf;
 void* g_shm_addr = g_shm_buf;
+#else 
+static char g_mem_buf[MEM_SIZE] __attribute__((aligned(32)));
+unsigned g_mem_size = MEM_SIZE;
+unsigned g_shm_size = SHM_SIZE;
+void* g_mem_addr = g_mem_buf;
+void* g_shm_addr = 0x5fe00000;
+#endif 
 
 int load_bin(const char* filename, void** pp_addr, unsigned* p_size)
 {
+#if defined(linux)
     FILE* fp;
     unsigned size;
     void* buf;
@@ -36,6 +45,7 @@ int load_bin(const char* filename, void** pp_addr, unsigned* p_size)
     fclose(fp);
     *pp_addr = buf;
     *p_size = size;
+#endif
     return 0;
 }
 
@@ -52,6 +62,7 @@ void main_app(int argc, char **argv)
     int frame_shift = sample_rate / 1000 * 32;// frame shift 10ms
     int keyword_num = 2;
     int max_frame_num = 64;
+    long long last_counter;
     
     void *mem_addr, *shm_addr;
     unsigned mem_size, shm_size;
@@ -60,11 +71,10 @@ void main_app(int argc, char **argv)
     void *res_addr, *input_addr, *meanstd_addr;
     unsigned res_size, input_size, meanstd_size;
 
-    const char* res_path = argv[1];
-    const char* wav_path = argv[2];
-
     LOG("func:%s\n", __FUNCTION__);
 #if 0
+    const char* res_path = argv[1];
+    const char* wav_path = argv[2];
     load_bin(res_path, &res_addr, &res_size);
     load_bin(wav_path, &input_addr, &input_size);
 #else 
@@ -120,10 +130,13 @@ void main_app(int argc, char **argv)
     for (int j = 0; j < num_frames; j++) {
         wave[j] = ((float*)(input_addr))[j];
     }
+    last_counter = clock();
     snoring_detect_process(kws, wave, fea, num_frames);
+    last_counter = clock() - last_counter;
     for (int j = 0; j < keyword_num; j++) {
         printf("keyword:%d, pred:%f\n", j, fea[j]);
     }
+    printf("counter:%f(M/s)\n", last_counter/1.0e6f/2.0);
 
     snoring_detect_uninit(kws);
 }

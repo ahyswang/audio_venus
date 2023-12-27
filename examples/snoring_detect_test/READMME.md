@@ -16,6 +16,17 @@
 >bash run.sh
 ```
 
+## 芯片一致性对比
+
+```
+res_size:862272
+input_size:131072
+mem_size:87161, shm_size:599055
+keyword:0, pred:0.015625
+keyword:1, pred:0.984375
+counter:8.439601(M/s)
+```
+
 ## 工具
 
 * 1.二进制转头文件.

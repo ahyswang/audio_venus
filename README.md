@@ -1,6 +1,6 @@
 # AUDIO_VENUS
 
-通用的项目框架
+VENUS芯片上运行的音频示例引擎，包括离线鼾声检测、流式唤醒（待完成）。
 
 ## 环境部署
 
@@ -20,6 +20,12 @@ pip install -r requirements.txt -f https://download.pytorch.org/whl/torch_stable
 
 ## 样例测试
 
-* [喊声检测] (examples/snoring_detect_test/README.md)
-* [流式唤醒] (examples/wekws_test/README.md)
+* [喊声检测] (examples/snoring_detect_test/README.md) 完成
+* [流式唤醒] (examples/wekws_test/README.md) 待完成
+
+## 参考
+
+* Thinker推理框架（commit dfc3a0fefbe49c35e134948b273fc1fb5cee068c） [https://github.com/LISTENAI/thinker]   
+* Linger量化训练（commit 64edb4c7d4d9db7bf67a9ec419b4b219c164457c） [https://github.com/LISTENAI/linger]  
+* Wekws流式唤醒 [https://github.com/wenet-e2e/wekws]  
 

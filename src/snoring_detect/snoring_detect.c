@@ -76,12 +76,14 @@ static void vec_float2int8(void* y, void* x, int N, unsigned qvalue)
 {
     float* p_x = (float *)x;
     char* p_y = (char *)y;
+    float  acc = 0.0f;
     float  scale = (1<<qvalue);
     unsigned i;
     for (i = 0; i < N; i++){
-        p_y[i] = floor(p_x[i]*scale + 0.5f);
-        p_y[i] = p_y[i]<-128?128:p_y[i];
-        p_y[i] = p_y[i]>127?127:p_y[i];
+        acc = floor(p_x[i]*scale + 0.5f);
+        acc = acc<-128?128:acc;
+        acc = acc>127?127:acc;
+        p_y[i] = acc;
     }
 }
 
@@ -89,10 +91,12 @@ static void vec_int82float(void* y, void* x, int N, unsigned qvalue)
 {
     char* p_x = (char *)x;
     float* p_y = (float *)y;
+    float  acc = 0.0f;
     float  iscale = 1.0/(1<<qvalue);
     unsigned i;
     for (i = 0; i < N; i++){
-        p_y[i] = p_x[i]*iscale; 
+        acc = p_x[i]*iscale; 
+        p_y[i] = acc;
     }
 }
 

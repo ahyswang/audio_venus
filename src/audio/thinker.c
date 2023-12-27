@@ -87,6 +87,9 @@ thinker_t* thinker_init(void* mem_addr, void* shm_addr, void* res_addr, unsigned
     svr         = (thinker_t *)ALIGNED_ADDR(p_mem, ALIGNMENT_SIZE);
     p_mem       = p_mem + ALIGNED_SIZE(sizeof(thinker_t), ALIGNMENT_SIZE);
 
+    p_mem       = (char *)ALIGNED_ADDR(p_mem, ALIGNMENT_SIZE);
+    p_shm       = (char *)ALIGNED_ADDR(p_shm, ALIGNMENT_SIZE);
+
     ret = tInitialize();
     if (ret != T_SUCCESS) {
         printf("tInitialize error, ret = %d\n", ret);
