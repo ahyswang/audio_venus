@@ -8,7 +8,7 @@
 ```
 conda create -n audio_venus python=3.7.3
 conda activate audio_venus
-pip install -r requirements.txt
+pip install -r requirements.txt -f https://download.pytorch.org/whl/torch_stable.html
 ```
 
 ## 源码编译 
@@ -22,5 +22,4 @@ pip install -r requirements.txt
 
 * [喊声检测] (examples/snoring_detect_test/README.md)
 * [流式唤醒] (examples/wekws_test/README.md)
-
 

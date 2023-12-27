@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include "audio/define.h"
 #include "snoring_detect/snoring_detect.h"
+#include "snoring_net.quant.pkg.h"
+#include "audio_segment_20_pad_float32.bin.h"
 
 #define MEM_SIZE    (1*1024*1024)
 #define SHM_SIZE    (640*1024)
@@ -62,9 +64,16 @@ void main_app(int argc, char **argv)
     const char* wav_path = argv[2];
 
     LOG("func:%s\n", __FUNCTION__);
-
+#if 0
     load_bin(res_path, &res_addr, &res_size);
     load_bin(wav_path, &input_addr, &input_size);
+#else 
+    res_addr = snoring_net_quant_pkg_resource;
+    res_size = snoring_net_quant_pkg_reslen;
+    input_addr = audio_segment_20_pad_float32_resource;
+    input_size = audio_segment_20_pad_float32_reslen;
+#endif
+
     LOG("res_size:%d\n", res_size);
     LOG("input_size:%d\n", input_size);
 

@@ -3,7 +3,7 @@ build_linux/*
 *.o
 *.pyc
 
-# bin/*
-# lib/*
-# examples/*/bin/*
-# examples/*/lib/*
+bin/*
+lib/*
+examples/*/bin/*
+examples/*/lib/*

@@ -13,7 +13,8 @@ chmod +x ./bin/snoring_detect_test
 popd
 
 pushd ${script_dir}/bin/
-./snoring_detect_test ../data/snoring_net.quant.pkg ../data/audio_segment_20_pad_float32.bin 
+./snoring_detect_test
+#./snoring_detect_test ../data/snoring_net.quant.pkg ../data/audio_segment_20_pad_float32.bin 
 popd
 
 # test python
