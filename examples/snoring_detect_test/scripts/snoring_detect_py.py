@@ -95,6 +95,7 @@ def main():
 
     if sr != 16000:
         input_data = librosa.resample(input_data, orig_sr=sr, target_sr=16000)
+        sr = 16000
     if input_data.shape[0] < 2*16000:
         input_data = np.pad(input_data, int(np.ceil((2.048*sr-input_data.shape[0])/2)), mode='reflect')
     else:
